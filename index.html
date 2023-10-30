@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Encuesta de deportes</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="cuestionariofutbol.css">
+    <script src="form.js"></script>    
+</head>
+
+<body>
+  <!-- HEADER  -->
+  <header>
+    <div class="cuadro">
+     <h1>Encuesta deportiva</h1>
+    </div>
+
+    <div class="cuadroDos">
+      <h2>Respondé este conjunto <br> <span class="indentar"> de preguntas</span></h2>
+    </div> 
+  </header>
+  <!-- FIN HEADER -->
+
+  <!--  FORMULARIO -->
+  <!-- LABEL E INPUTS -->
+<form method="post">
+  
+   <div class="firstSection">
+    <div id="aclaracion">
+        <h5 class="texto-aclaracion">Las copas del Mundial de la FIFA que verás durante toda la página web son botones para que en caso<br> de que quieras, conozcas mis respuestas para cada pregunta. </h5>
+    </div>
+    
+    <fieldset class="first-fieldset"> 
+     <label for="first-input"class="labelFirst" id="first-label">Dime, ¿Cuál es tu deporte favorito?</label> 
+        <input class="inputFirst" id="first-input" required>
+        <span class="firstSpanBorder"></span>  <!--input y span deben estar juntos para que se lleve a cabo el css de los span-->
+        
+        <img src="copa del mundo.png" class="baseCopa worldcup" id="copa" alt="Boton para obtener mi respuesta.">
+        <div class="container">
+           <div class="message uno" id="message"><h4>Fútbol</h4></div>
+           </div>
+    </fieldset>
+    
+    <fieldset class="second-fieldset">
+        <label for="second-input" class="labelSecond" id="second-label">¿Cuáles deportes has practicado?</label>
+        <input class="inputSecond" id="second-input" required>
+            <span class="secondSpanBorder"></span>
+
+            <img src="copa del mundo.png" class="baseCopa worldCupTwo" id="copaDos" alt="Boton para obtener mi respuesta.">
+            <div class="container">
+               <div class="message dos" id="messageDos"><h4>Fútbol & Tenis</h4></div>
+          </div>
+    </fieldset>  
+
+    <fieldset class="third-fieldset">
+        <label for="third-input" class="labelThird" id="third-label">¿A quién considerás el mejor deportista de la historia?</label>
+        <input class="inputThird" id="third-input" required>
+            <span class="thirdSpanBorder"></span>
+            
+            <img src="copa del mundo.png" class="baseCopa worldCupThird" id="copaTres" alt="Boton para obtener mi respuesta.">
+            <div class="container">
+               <div class="message tres" id="messageTres"><h4><span class="messiSpan">Lionel Messi &</span> <br> LeBron James </h4></div>
+            </div>
+    </fieldset>
+  </div>
+
+<!-- CAJAS DE GOAT´S -->
+ <div class="secondSection">
+      <p class="p">Dime quién creés que es el mejor jugador de todos los tiempos de ambos deportes.</p>
+      <h6 class="futboll">Fútbol:</h6>
+       
+      <div class="cajasGoats boxFutbol" id="cajaFutbol">
+        <input type="hidden" id="userSelectionFutbol" name="userSelectionFutbol">
+        <img class="goats" src="pele.jpg" alt="Pele"  name="futbol" type="radio" value="Pele" data-seleccionada="false">
+        <img class="goats" src="maradona.jpg" alt="Maradona"  name="futbol" type="radio" value="Maradona" data-seleccionada="false">
+        <img class="goats" src="messi.jpg" alt="Messi" name="futbol" type="radio" value="Messi" data-seleccionada="false">
+        <img class="goats" src="cr7.jpg" alt="Cr7"  data-seleccionada="false">
+        <img class="goats" src="cruyff.jpg" alt="Cruyff"  data-seleccionada="false">
+        <img class="goats" src="ronaldinho.jpg" alt="Ronaldinho" data-seleccionada="false">
+        <img class="goats" src="nazario.jpg" alt="Nazario" data-seleccionada="false">
+        <img class="goats" src="Di Stefano.jpg" alt="Di Stefano" data-seleccionada="false">
+      </div>
+          <input id="rtaGoatFutbol" placeholder="Otro? Escribelo aquí...">
+          <img class="copasCajas" src="copa del mundo.png" id="copaRtaFutbol" alt="Boton para obtener mi respuesta.">
+          <img class="imgsRespuestas" src="messi.jpg" id="imagenRtaFutbol">    
+          <!-- name="futbol" type="radio" AL DARLE MISMOS VALORES DE NAME Y UN TYPE="RADIO" A LAS IMGS, SE COMPORTAN COMO INPUTS RADIO, ES DECIR AL SELECCIONAR
+          UNA NUEVA OPCION, SE DESELECCIONA LA QUE ESTABA ACTUALMENTE SELECCIONADA, ASI NO AHORRAMOS CODIGO JAVASCRIP, QUE DE TODAS FORMAS ESTA HECHO. -->
+
+ 
+      <h6 class="basket">Basket:</h6>
+      <div class="cajasGoats boxNBA" id="cajaNBA">
+        <input type="hidden" id="userSelectionNBA" name="userSelectionNBA">
+        <img class="NBA" src="Shaq.jpg" alt="Shaquille O´neal"  data-seleccionada="false">
+        <img class="NBA" src="Curry.jpg" alt="Stephen Curry"  data-seleccionada="false">
+        <img class="NBA" src="Bryant.jpg" alt="Kobe Bryant" data-seleccionada="false">
+        <img class="NBA" src="Jabbar.jpg" alt="Kareem Abdul-Jabbar"  data-seleccionada="false">
+        <img class="NBA" src="Bird.jpg" alt="Larry Bird"  data-seleccionada="false">
+        <img class="NBA" src="Lebron.jpg" alt="LeBron James" data-seleccionada="false">
+        <img class="NBA" src="Jordan.jpg" alt="Michael Jordan" data-seleccionada="false">
+        <img class="NBA" src="Magic.jpg" alt="Magic Johnson" data-seleccionada="false">
+      </div>
+      <input id="rtaGoatNBA" placeholder="Otro? Escribelo aquí...">
+      <img class="copasCajas" src="copa del mundo.png" id="copaRtaBasket">
+      <img class="imgsRespuestas" src="Lebron.jpg" id="imagenRtaBasket" alt="Boton para obtener mi respuesta.">
+      
+      <h6 class="tenis">Tenis:</h6>
+      <div class="cajasGoats boxTenis" id="cajaTenis">
+        <input type="hidden" id="userSelectionTenis" name="userSelectionTenis">
+        <img class="goatsTenis" src="Nadal.jpg" alt="Rafael Nadal"  data-seleccionada="false">
+        <img class="goatsTenis" src="Federer.jpg" alt="Roger Federer"  data-seleccionada="false">
+        <img class="goatsTenis" src="Djokovic.jpg" alt="Novak Djokovic" data-seleccionada="false">
+      </div>
+      <input id="rtaGoatTenis" placeholder="Otro? Escribelo aquí...">
+      <img class="copasCajas" src="copa del mundo.png" id="copaRtaTenis" alt="Boton para obtener mi respuesta.">
+      <img class="imgsRespuestas" src="Federer.jpg" id="imagenRtaTenis"> 
+    </div>
+ 
+</div>
+
+
+<!-- CARRUSELES -->
+ <div class="thirdSection"> <!-- COMPROBAR CAMBIAR DIV POR SECTION, MANTENER SI LA PÁGINA SE MANTIENE IGUAL-->
+  <p class="equipoGrande">¿Cuál creés que es el club más grande en su deporte? Responde con un click.</p>
+      <div class="carrusel futbol">
+        <button class="buttons" id="anterior" type="button">Anterior</button>
+        <input type="hidden" id="userSelectionGrandeFutbol" name="userSelectionGrandeFutbol">
+        <img class="imagenesCarrusel" id="imgsCarrusel" alt="Imagenes Fútbol">
+        <button class="buttons" id="siguiente" type="button">Siguiente</button>
+        <img src="copa del mundo.png" class="baseCopa copa-madrid" id="copaCarruselMadrid">
+        <img src="RealMadrid.jpg" class="rta-madrid" id="rtaCarruselMadrid">
+    </div>
+
+    <div class="carrusel NBAA">
+      <button class="buttons" id="anteriorNBA" type="button">Anterior</button>
+      <input type="hidden" id="userSelectionGrandeNBA" name="userSelectionGrandeNBA">
+      <img class="imagenesCarrusel" id="imgsCarruselNBA" alt="Imagenes NBA">
+      <button class="buttons" id="siguienteNBA" type="button">Siguiente</button>
+      <img src="copa del mundo.png" class="baseCopa copa-warriors" id="copaCarruselWarriors">
+        <img src="Warriors.png" class="rta-warriors" id="rtaCarruselWarriors">
+    </div>
+
+     <p class="equipoFavDos">Ahora dime a cual apoyas.</p>
+      <div class="carrusel dosFutbol">
+        <button class="buttons" id="anteriorDos" type="button">Anterior</button>
+        <input type="hidden" id="userSelectionApoyoFutbol" name="userSelectionApoyoFutbol">
+        <img class="imagenesCarrusel" id="imgsCarruselDos" alt="Imagenes Fútbol">
+        <button class="buttons" id="siguienteDos" type="button">Siguiente</button>          
+    </div>
+
+    <div class="carrusel dosNBA">
+      <button class="buttons" id="anteriorNBADos" type="button">Anterior</button>
+      <input type="hidden" id="userSelectionApoyoNBA" name="userSelectionApoyoNBA">
+      <img class="imagenesCarrusel" id="imgsCarruselNBADos" alt="Imagenes NBA">
+      <button class="buttons" id="siguienteNBADos" type="button">Siguiente</button>
+    </div>
+      <input class="otros primero" placeholder="Otro? Escribelo aquí...">
+      <input class="otros segundo" placeholder="Otro? Escribelo aquí..." >
+  
+  <!-- LABEL E INPUTS DEL TOP 5 SELECCIONES-->
+   <p class="lastP">Aun no hemos hablado de selecciones nacionales y sus torneos, hablemos del más importante:</p><h4 class="mundial-de-futbol"> El mundial.</h4>
+      <fieldset class="sectionTres firstFieldset">
+        <label for="l1" class="ThirdSectionFirstLabel">¿Cuántos mundiales has vivido?</label>
+        <input id="i1" class="ThirdSectionFirstInput">
+        <span class="sec3 spanFirst"></span>
+        <img src="copa del mundo.png" class="baseCopaS3 copa1de4" id="copa1de4">
+         <div class="message primeroo" id="mensaje1de4"><h4>4</h4></div>
+      </fieldset>
+
+    <fieldset class="sectionTres secondFieldset">
+      <label for="l2" class="ThirdSectionSecondLabel">¿Cuál fue el primero que viste?</label>
+      <input id="i2"class="ThirdSectionSecondInput">
+      <span class="sec3 spanSecond"></span>
+      <img src="copa del mundo.png" class="baseCopaS3 copa2de4" id="copa2de4" alt="Boton para obtener mi respuesta.">
+      <img class="imgsRespuestas" src="mundialsudafrica.jpg" alt="Mundial 2010 (Sudáfrica)" id="mensaje2de4">
+    </fieldset>
+
+  <fieldset class="sectionTres thirdFieldset">
+      <label for="l3" class="ThirdSectionThirdLabel">¿Cuál consideras que haya sido el mejor de los que viste?</label>
+      <input id="i3" class="ThirdSectionThirdInput">
+      <span class="sec3 spanThird"></span>
+      <img src="copa del mundo.png" class="baseCopaS3 copa3de4" id="copa3de4" alt="Boton para obtener mi respuesta.">
+      <img class="imgsRespuestas" src="ArgentinaChamp.jpg" alt="Argentina Campeón Mundial 2022 Qatar" id="mensaje3de4">
+      
+    </fieldset> 
+      
+    <!-- CAJA TOP 5 SELECCIONES -->
+     <p class="titleMundial">Ahora comentame</p>
+       <h6 class="realTitle">¿Cuál creés que es la mejor selección de la historia?</h6>
+          <div class="cajasGoats mundialSelecciones" id="cajaSelecciones">
+            <input type="hidden" id="userSelectionMejorSeleccion" name="userSelectionMejorSeleccion">
+            <img class="selecciones" src="Italia.png" alt="Italia">
+            <img class="selecciones" src="Brasil.png" alt="Brasil">
+            <img class="selecciones" src="Argentina.png" alt="Argentina">
+            <img class="selecciones" src="Alemania.png" alt="Alemania">
+            <img class="selecciones" src="Francia.png" alt="Francia">
+          </div>
+        <input class="s3input" placeholder="¿Por qué?">
+        <img src="copa del mundo.png" class="baseCopaS3 copa4de4" id="copa4de4" alt="Boton para obtener mi respuesta.">
+        <img class="imgsRespuestas" src="Argentina.png" alt="Argentina" id="mensaje4de4">
+
+        <footer>
+        <textarea placeholder="Agregá cualquier información extra que desees..." rows="10"
+        cols="20" ></textarea>
+        <input class="submit" type="submit" required>
+        </footer>
+        <div class="extra-size"></div>
+      
+      </div>
+    </form>
+    
+    
+</body>   
+</html>
+
+
+        

@@ -1,0 +1,1235 @@
+/* BASE DE LA PÁGINA */
+html, body {
+box-sizing: border-box;
+} 
+
+* {
+margin: 0px;
+padding: 0px;
+} 
+/*Selector universal que aplica a todos los elementos*/
+/*En caso de que haya un elemento que queramos tenga margen y padding simplemente editarlo posterior y se sobreescribiran,
+se le da prioridad a las ediciones específicas antes que a las universales */
+
+
+body{
+width: 90vw;
+height: 100vh;
+margin: 0;
+background-color: #1b1b32;  /*AZUL OSCURO DEL FORM DE freeCodeCamp*/
+}
+
+
+
+@font-face{
+    src: url(../Programar/ChineseRocks.TTF) format(truetype);
+    font-family:"ChineseRocks";
+}
+
+/*  */                                              /* ESTRUCTURA DEL HEADER */
+
+/* HEADER, ELEMENTO PADRE DE "TEXTO" */
+header{
+width:100%;
+height:20%;
+padding-top:1px;
+padding-bottom:10px; 
+}
+
+/* CUADRO DEL <H1> */
+.cuadro{
+position: absolute;
+top:5%;
+left:4%;
+background-color: rgb(235, 0, 0);
+width: 25%;
+height: 150px;
+border: 8px solid orange;
+border-style: double;
+}
+/* transform: translateX(100%)  */ /*Mueve los elementos pero se supone que no funciona igual al position y al margin*/
+
+/* CUADRO DEL <H2> */
+.cuadroDos{
+position: absolute;
+top:22%;
+right:5%;
+width:auto;
+height:60px;
+padding:10px;
+background-color: rgb(235, 0, 0);
+border: 8px solid orange;
+border-radius: 0% 45% 0% 45%;
+border-style: double;
+}
+
+.indentar{
+text-indent: 20px;
+margin-left:60px;
+}
+
+
+/* TEXTO */
+h1{
+font-family:'Lucida Sans';
+text-align: center;
+font-style:oblique;
+color:white;
+font-size: 60px;
+text-shadow: 
+-1.5px -1.5px 0 black,   /*Borde superior IZQUIERDO*/   /* mismo valor en bordes de misma zona es equivalente */
+1.5px -1.5px 0 black,  /*Borde superior DERECHO*/      /* (superior derecho) -5px -5px  === -5px -5px (superior izquierdo) */
+-1.5px 1.5px 0 black,    /*Borde inferior IZQUIERDO*/
+3.5px 6px 0 black;     /*Borde inferior DERECHO*/
+} /* 3px / 5.5px      */
+/*horizontal/vertical */
+
+h2{
+font-family:'Lucida Sans';
+color: white;
+font-size:30px;
+text-shadow: 
+-1px -1px 0 black,   
+1px -1px 0 black,    
+-1px 1px 0 black,    
+1px 1px 0 black
+} 
+/* Estos valores de text-shadow son los adecuados para que quede contorno negro en las letras, aumentando el valor se acentúa
+más el contorno. */
+
+
+/* BOX QUE CONTIENE EL MENSAJE ACLARATORIO DE LAS COPAS INTERACTIVAS */
+/* SERÁ EJECUTADO AL USAR EL PRIMER INPUT */
+#aclaracion{
+display: none;
+background-color: orange;
+color:white;
+border: 6px double rgb(160, 0, 0);
+font-size: 20px;
+position: absolute;
+top:8%;
+left:78%;
+margin-right: 20px;
+border-style:groove;
+width:20%;
+text-shadow: 
+-2px -2px 0 black, /*ARRIA IZQ*/
+-2px -2px 0 black, /*ARRIA DER*/
+-2px -2px 0 black, /*ABAJO IZQ*/
+-2px -2px 0 black; /*ABAJO DER*/
+}
+
+/* MENSAJE */
+.texto-aclaracion{
+font-weight:bolder;
+font-size: 28px;
+margin:14px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+
+/* VALORES BÁSICOS DE LOS ELEMENTOS PRINCIPALES */
+fieldset{
+border:none;
+}
+
+label{
+display: block;
+font-style: italic;
+font-weight: bolder;
+font-size: 50px;
+color:white;}
+/* El block en display sirve para que los inputs no queden inline, y el label no tenga elementos horizontalmente */
+
+input{
+position: absolute;
+width:40%;
+height:40px;
+border: 5px solid red;
+font-family: fantasy;
+font-size:30px;
+/* margin-top:20px; */
+background-color: #1b1b32; /*COLOR DE FONDO*/
+color:white;
+/* margin-left:30%;  Al aplicar este valor se centra el input ya que su ancho = 40%, es decir que quedaria 30% de ambos margenes */
+border-style: double;
+}                /*El calculo para centrar al elemeento es dividir en dos el restante del width 100 % - 40% = 60& / 2 = 30 %*/
+
+.baseCopa{
+position: absolute;
+width:7%;
+height:14%;
+cursor: pointer;
+}
+
+/* CAJA QUE OCULTA MIS RESPUESTAS A LA PRIMER PARTE DEL FORM */
+.container { 
+display: flex;
+align-items: center;
+}
+
+/* DIV. MENSAJE DENTRO DE LA CAJA ANTERIOR */
+.message{
+display: none; /* Inicialmente oculto */ /*Luego con js se modicara con cada click a inline y viceversa */
+color:orange;
+font-size:40px; 
+position: absolute;
+text-decoration: underline;
+text-decoration-color:white;  
+text-decoration-thickness: 2px; /*Tamaño del subrayado*/
+}
+
+/*MENSAJE CON MIS RESPUESTAS  */
+
+
+/*  *//*  *//*  */
+/*  *//*  *//*  */
+/**/                                              /* COMIENZO DEL FORMULARIO */
+
+/* PRIMERA SECCIÓN DEL FORM */
+
+/* DIV ESTRUCTURAL */
+.firstSection{
+position: relative;
+height:1200px;
+width: 100%;
+padding-right:137px;
+margin-top: 10%;
+}
+
+
+/* */    /* PRIMER GRUPO DE ELEMENTOS */
+
+/* LABEL E INPUT */
+.labelFirst{
+position: absolute;
+top:6%;
+left:24%;
+}
+
+.inputFirst{
+top:15%;
+left:26%;    
+right:30%;   /* Estos valores de left y right centrarán el input ya que su tamaño es de 40%, por lo tanto un 30% de cada lado, 100% total. */
+} 
+
+
+/* PRIMER BORDER BOTTOM DEL FIELDSET */
+.first-fieldset::after {
+content: ""; /* Necesario para que el elemento ::after sea visible */
+border-bottom: 3px solid orange; /*Define el borde inferior*/
+display: block;
+width:30%;
+position: absolute;
+top:25%;
+left:32%;
+/* box-shadow: 0px 3px 0px red; Sombra para el segundo borde inferior */
+}
+/* CON ESTE SELECTOR AFTER PUEDO MODIFICAR EL BORDE SIN AFECTAR A LOS ELEMENTOS ANIDADOS DENTRO DEL FIELDSET */
+
+
+/* 1ER BORDE SECUNDARIO */
+.firstSpanBorder {
+width: 14%;
+border-bottom: 3px solid orange;
+display: block;
+position: absolute;
+top:30%;
+left:40%;
+}
+
+
+/*1ER COPA INTERACTIVA  */
+.worldcup{
+top:15%;
+left:70%;
+}
+
+/* 1ER RESPUESTA PROPIA */
+.uno{
+top:15%;
+left:17%;}
+
+/* mas 5 top y menos 4 left */
+
+
+
+
+
+
+/* */    /* SEGUNDO GRUPO DE ELEMENTOS*/
+
+/* LABEL E INPUT */
+.labelSecond{
+position: absolute;
+top:40%;
+left:24%;
+}
+
+.inputSecond{
+top:49%;
+left:26%;
+}
+
+/* SEGUNDO BORDER BOTTOM DEL FIELDSET */
+.second-fieldset::after {
+content: ""; 
+border-bottom: 3px solid orange;
+display: block;
+width:30%; 
+position: absolute;
+top:59%;
+left:32%;
+}
+
+/* SEGUNDO BORDE SECUNDARIO */
+.secondSpanBorder {
+width: 14%;
+border-bottom: 3px solid orange;
+display: block;
+position: absolute;
+top:64%;
+left:40%;
+}
+
+/* 2DA COPA INTERACTIVA */
+.worldCupTwo{ 
+top:49%;
+left:71%;
+}
+
+/*2DA RESPUESTA PROPIA  */
+.dos{
+top:49%;  
+left:8%
+}
+
+
+
+/* */        /* TERCER GRUPO DE ELEMENT0S */
+/* LABEL E INPUT */
+.labelThird{
+position: absolute;
+top:74%;
+left:8%;
+}
+
+.inputThird{
+top:83%;
+left:26%;
+}
+
+/* TERCER BORDER BOTTOM DEL FIELDSET */
+.third-fieldset::after {
+content: ""; /* Necesario para que el elemento ::after sea visible */
+border-bottom: 3px solid orange;
+display: block;
+width:30%;
+position: absolute;
+top:93%;
+left:32%;
+/* box-shadow: 0px 3px 0px red; Sombra para el segundo borde inferior */
+}
+
+
+/* TERCER BORDE SECUNDARIO  */
+.thirdSpanBorder {
+width: 14%;
+border-bottom: 3px solid orange;
+display: block;
+position: absolute;
+top:98%;
+left:40%;
+}
+
+/* TERCER COPA INTERACTIVA */
+.worldCupThird{
+top:83%;
+left:71%;
+}
+
+/* 3ER RESPUESTA PROPIA */
+.tres{
+top:83%;
+left:8%;
+}
+
+/* EFECTOS */ /* INPUT Y AMBOS BORDES*/
+
+/* PSEUDOCLASE 'FOCUS' EN EL INPUT */
+/* Al utilizar los inputs su borde cambia de color a naranja */
+input:focus{
+border: 6px solid orange;
+}
+
+
+/* CAMBIO DE COLOR EN EL BORDE INFERIOR PRINCIPAL 'fieldset:after' */
+fieldset:focus-within::after {
+border-bottom: 3px solid red; /* Esto logra que cuando cuando se utilice un input, su borde inferior principal cambie de color */
+}
+
+
+
+/* CAMBIO DE COLOR EN EL BORDE INFERIOR SECUNDARIO 'span' */
+input:focus + .firstSpanBorder,
+input:focus + .secondSpanBorder,
+input:focus + .thirdSpanBorder,
+input:focus + .spanFirst,
+input:focus + .spanSecond,
+input:focus + .spanThird {
+border-bottom: 3px solid red;  /*Esto logra que cuando se utilice un input, su borde inferior secundario cambie de color*/
+}
+/* Cualquier elemento se puede vincular al 'input:focus' simplemente debe estar seguido de el en el HTML */
+
+
+
+
+
+
+
+
+/**/                       /* SEGUNDA SECCIÓN DEL FORMULARIO */
+
+/* CAJAS CON LOS GOATS */
+
+/* DIV ESTRUCTURAL */
+.secondSection{
+position: relative;
+height:2000px;
+width:100%;
+padding-right:137px;
+bottom:100px;
+}
+
+
+
+/* DATOS BASES DE LOS ELEMENTOS PRINCIPALES*/ 
+
+/* TITULOS DE LAS CAJAS */
+h6{
+font-size: 50px;
+font-family: 'Times New Roman', Times, serif;
+color:#ffa500;
+text-decoration:underline;
+position: absolute;
+}
+
+/* CAJAS */
+.cajasGoats{
+height:600px;
+width:80vw;
+position: absolute;
+left:10%;
+display: flex;
+justify-content: space-around;
+align-items: center ;
+flex-wrap: wrap;
+background-color: rgb(100, 0, 0);
+border: 10px solid orange;
+border-style:double;
+padding:5px;
+}   /* ERROR A NO REPETIR. */ /*Cada caja ocupa 600px de altura, y le di a su div estructural, 2100. Solo las 3 cajas ocupan
+1800 px solo entre ellas, casi la totalidad del div estructural, me falto espacio, por no comprobar esto antes de darle
+valores a la altura de este div.*/
+
+
+
+/* COPAS INTERACTIVAS */
+.copasCajas{
+height:140px;
+width:100px;
+position:absolute;
+left:52%;
+cursor: pointer;
+}
+
+/* IMAGENES CON MI PROPIA RESPUESTA */
+.imgsRespuestas{
+height:200px;
+width:200px;
+position:absolute;
+left:62%;
+border: 4px solid green;
+display:none;
+}
+
+
+
+/* SECCION FUTBOL */
+/* UBICACIÓN TITULO FUTBOL */
+.futboll{
+top:4%;
+left:5%;
+}
+
+/* UBICACIÓN CAJA FUTBOL*/
+.boxFutbol{
+top:8%; 
+}
+
+/* UBICACION INPUT FUTBOL */
+#rtaGoatFutbol{
+position: absolute;
+top:40.5%;
+left:10%;
+}
+
+/* UBICACIÓN COPA INTERACTIVA FUTBOL */
+#copaRtaFutbol{
+top:40.5%;     
+}
+
+
+/* UBICACION FOTO RESPUESTA FUTBOL */
+#imagenRtaFutbol{
+top:41%;
+}
+
+
+
+
+/* SECCION BASKET */
+/* UBICACIÓN TITULO BASKET */
+.basket{
+top:52%;    
+left:5%;
+}
+
+/* UBICACION CAJA BASKET*/
+.boxNBA{
+top:56%;
+}
+
+/* UBICACION INPUT BASKET */
+#rtaGoatNBA{
+position: absolute;
+top:88.5%;
+left:10%;
+}
+
+/* UBICACIÓN COPA INTERACTIVA NBA*/
+#copaRtaBasket{
+top:88.5%;
+}
+/* UBICACION FOTO RESPUESTA NBA */
+#imagenRtaBasket{
+top:89%;
+}
+
+
+
+/* SECCION TENIS */
+/* UBICACION TITULO TENIS*/
+.tenis{
+top:100%;
+left:5%;
+}
+
+/* UBICACION CAJA TENIS */
+.boxTenis{
+top:104%;
+height: 400px;
+}
+
+/* UBICACION INPUT TENIS */
+#rtaGoatTenis{
+position: absolute;
+top:127%;
+left:10%;
+}
+
+/* UBICACIÓN COPA INTERACTIVA TENIS*/
+#copaRtaTenis{
+top:127%;
+}
+
+/* UBICACION FOTO RESPUESTA TENIS */
+#imagenRtaTenis{
+top:128%;
+}
+
+
+
+/*  *//*  */
+/* IMGS DE LAS CAJAS con sus respectivas ANIMACIONES*/
+/* FUTBOL */
+.goats{
+width:22%;
+height:45%;
+display: flex;
+border: 11px solid wheat;
+border-style: double;
+cursor: pointer;
+transition: ease 1s;
+} 
+
+.goats:hover{
+transform: scale(1.2);
+transition: ease 1s;
+}
+
+.goats.seleccionada {  /* 'seleccionada' es una variable const de js que hace referencia a la img clickeada */
+transform: scale(1.2);
+}
+
+
+/* BASKET */
+.NBA{
+width:22%;
+height:45%;
+display: flex;
+border: 11px solid wheat;
+border-style: double;
+cursor: pointer;
+transition: ease 1s;
+}
+
+.NBA:hover{
+transform:scale(1.2);
+transition:ease 1s;
+}
+
+.NBA.seleccionada {  /* 'seleccionada' es una variable const de js que hace referencia a la img clickeada */
+transform: scale(1.2);
+}
+
+/* TENIS */
+.goatsTenis{
+width:30%;
+height:90%;
+display: flex;
+border: 11px solid wheat;
+border-style: double;
+cursor: pointer;
+transition: ease 1s;
+} 
+
+.goatsTenis:hover{
+transform: scale(1.2);
+transition: ease 1s;
+}
+
+.goatsTenis.seleccionada {  /* 'seleccionada' es una variable const de js que hace referencia a la img clickeada */
+transform: scale(1.2);
+}
+
+
+
+
+
+
+/* */          /* FIN DE LA SEGUNDA SECCION */
+
+
+
+
+
+
+
+
+/*  */                   /* TERCERA SECCION DEL FORMULARIO */
+
+/* CARRUSEL DE IMAGENES */
+
+.thirdSection{
+position: relative;
+height:3500px;
+width:100%;
+padding-right:137px;
+margin-top:780px;
+}
+
+
+
+/* DATOS BASES DE LOS ELEMENTOS PRINCIPALES */
+
+/* TÍTULO */
+#equipoGrande{
+position: absolute;
+top:-6%;
+left:2%;
+white-space: nowrap;  /*Evita que el texto se divida en varias líneas*/ /* 'reyes' no quedaba inline, pero esto lo solucionó*/
+/*overflow: hidden;*/ /*Oculta el contenido que desborda*/
+/* text-overflow: ellipsis; Agrega puntos suspensivos (...) si el texto desborda  */
+}                        
+/*El % de este elemento esta relacionado con el viewport, ya que no contiene un elemento padre con el "position:" distinto a static*/
+
+/* 4 CARRUSELES */
+.carrusel {
+display: flex;
+position:absolute ;
+height:300px;
+width:34%;
+border: 8px solid #ffa500;
+border-style: double;
+justify-content: center; /*ALINEACION HORIZONTAL (EJE PRINCIPAL)*/
+align-items: center; /*ALINEACION VERTICAL (EJE TRANSVERSAL)*/
+}
+/* Justify y Align, antes no me servian debido a que los button y las imgs tenian position absolute, por lo tanto se volvian independientes */
+
+/* IMAGENES DE LOS 4 CARRUSELES */
+.imagenesCarrusel
+{height:80%;
+width:55%;}
+
+/*  BOTONES DE LOS 4 CARRUSELES*/
+button {
+position: absolute;
+width:20%;
+height:30px;
+border: 3px solid orange; /* Sin borde */
+border-radius: 5px; /* Borde redondeado */
+font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+background-color: red; /* Color de fondo */
+color: #fff; /* Color de texto */
+cursor: pointer; /* Cursor de puntero al pasar el mouse */
+}
+
+/* COPAS DE LOS 4 CARRUSELES */
+.carrusel-cups{
+width:16%;
+height:30%;
+position: absolute;
+left:-5%;
+bottom:-40%;
+}
+
+/* UBICACIONES DE LOS CARRUSELES Y LOS BOTONES */
+
+/* CARRUSEL FUTBOL UBICACION */
+.futbol{
+top:4%;
+left:6%;    
+}
+
+
+/* CARRUSEL NBA UBICACION */
+.NBAA {
+top:4%;
+right:6%;
+}
+
+
+
+/* UBICACIÓN BOTONES DE FUTBOL */
+#anterior{
+left:2%;
+}
+
+#siguiente{
+right:2%;
+}
+/* transform: translateY(-50%); */
+
+
+/* Debido a usar ID y no class para CSS tuve que multiplicar este codigo al no poder usar mas de un id, USAR CLASS PARA CSS. */
+
+
+
+/* UBICACIÓN BOTONES NBA */
+#anteriorNBA{
+left:2%;
+}
+
+#siguienteNBA{
+right:2%;
+}
+
+
+
+
+/* SEGUNDO PAR DE CARRUSELES */
+
+/* DATOS BASE DE LOS ELEMENTOS PRINCIPALES */
+/* TÍTULO */
+.equipoFavDos{
+position: absolute;
+top:11%;
+left:2%;
+white-space:nowrap;
+}
+
+/* UBICACION SEGUNDO CARRUSEL FUTBOL  */
+.dosFutbol{
+position: absolute;
+top:20%;
+left:6%;
+}
+
+/* UBICACION SEGUNDO CARRUSEL NBA */
+.dosNBA{
+position: absolute;
+top:20%;
+right:6%;
+}
+
+/* INPUTS */
+.otros{
+width:34.6%;
+height:1.25%;
+position: absolute;
+top:30%;
+}
+
+
+
+/* UBICACION BOTONES FUTBOL */
+#anteriorDos{
+left:2%;
+}
+
+
+
+#siguienteDos{
+right:2%;
+}
+
+
+/* UBICACION BOTONES NBA */
+#anteriorNBADos{
+left:2%;
+}
+
+
+#siguienteNBADos{
+right:2%;
+}
+
+
+
+/* UBICACION INPUTS */
+.primero{
+left:6%;
+}
+
+
+.segundo{
+left:59%;
+}
+
+/* UBICACION COPAS Y MESSAGES (BORDE INFERIOR) */
+.third{
+bottom:-68%
+}
+
+.third-message{
+bottom:-68%;
+}
+
+.fourth{
+bottom:-68%
+}
+
+.fourth-message{
+bottom:-68%;
+}
+
+/* MESSAGES*/
+.copa-madrid{
+    position: absolute;
+    left:-5%;
+    bottom:-50%;
+    height:120px;
+    width:100px;
+}
+
+.rta-madrid{
+    display: none;
+    position: absolute;
+    left:80%;
+    bottom:-70%;
+    height: 170px;
+    width: 60px;
+}
+
+.copa-warriors{
+    position: absolute;
+    left:-5%;
+    bottom:-50%;
+    height:120px;
+    width:100px;
+}
+
+.rta-warriors{
+    display: none;
+    position: absolute;
+    left:65%;
+    bottom:-70%;
+    height: 170px;
+    width: 50px;
+}
+
+
+/*  *//*  */            /* SECOND PART OF THE THIRD SECTION */
+
+
+/* PREGUNTAS */
+/* TÍTULO */
+.lastP{
+position: absolute;
+top:28%;
+font-size:28px;
+white-space: nowrap;
+}
+
+.mundial-de-futbol{
+position: absolute;
+top:34.5%;
+left:78%;
+font-family:'Lucida Sans';
+font-style:oblique;
+color:white;
+font-size: 60px;
+text-shadow: 
+-1.5px -1.5px 0 red,   /*Borde superior IZQUIERDO*/   /* mismo valor en bordes de misma zona es equivalente */
+1.5px -1.5px 0 red,  /*Borde superior DERECHO*/      /* (superior derecho) -5px -5px  === -5px -5px (superior izquierdo) */
+-1.5px 1.5px 0 red,    /*Borde inferior IZQUIERDO*/
+3.5px 6px 0 red;     /*Borde inferior DERECHO*/
+background-color: #1b1b32;
+border: 4px solid orange;
+
+
+}
+
+/* BORDE PRIMARIO (fieldset::after)*/
+.sectionTres::after{
+content: "";
+display: block;
+width:30%;
+position: absolute;
+left:32%;
+border-bottom: 3px solid orange;
+}
+
+/* BORDE SECUNDARIO */
+.sec3{
+position: absolute;
+left:40%;
+width:14%;
+border-bottom: 3px solid orange;
+}
+
+.baseCopaS3{
+width:7%;
+height:5%;
+position: absolute;
+left:70%;
+cursor: pointer;
+}
+
+/* LABEL INPUTS FIELDSET:AFTER SPAN */
+/* Firsts */
+.ThirdSectionFirstLabel{
+position: absolute;
+top:38%;
+left:24.5%;
+}
+
+.ThirdSectionFirstInput{
+position: absolute;
+top:40%;
+left:26%;
+}
+
+.firstFieldset::after{
+top:43%;
+}
+
+.spanFirst{
+top:44.5%;
+}
+
+.copa1de4{
+top:40%;
+}
+
+
+
+.primeroo{       /* DIV PRIMER RTA PROPIA */
+top:40%;
+left:24%;
+}
+
+
+
+
+/* Seconds */
+.ThirdSectionSecondLabel{
+position: absolute;
+top:48%;
+left:26%;
+
+}
+
+.ThirdSectionSecondInput{
+position: absolute;
+top:50%;
+left:26%;
+}
+
+.secondFieldset::after{
+top:53%;
+}
+
+.spanSecond{
+top:54.5%;
+}
+
+.copa2de4{
+top:50%;
+}
+
+#mensaje2de4{
+top:50%;
+left:11%;
+}
+
+/* Thirds */
+.ThirdSectionThirdLabel{
+position: absolute;
+top:59%;
+left:8%;
+
+}
+
+.ThirdSectionThirdInput{
+position: absolute;
+top:61%;
+left:26%;
+}
+
+.thirdFieldset::after{
+top:64%;
+}
+
+.spanThird{
+top:65.5%;
+}
+
+.copa3de4{
+top:61.5%;
+}
+
+#mensaje3de4{
+top:61.5%;
+left:2%;
+width:20%;
+}
+
+/*  */  /* TOP 5 SELECCIONES*/
+/* TÍTULOS */
+.titleMundial{
+position: absolute;
+top:63.5%;
+left:4%;
+white-space: nowrap;
+}
+
+
+.realTitle{
+position: absolute;
+top:73%;
+left:4%;
+
+}
+
+/* CAJA CON LAS SELECCIONES */
+.mundialSelecciones{
+position: absolute;
+top:76%;
+width:90vw;
+height:400px;
+left:4%;
+}
+
+/* IMGS DE LA CAJA */
+.selecciones{
+width:16%;
+height:81%;
+display: flex;
+border: 12px solid wheat;
+border-style: double;
+cursor: pointer;
+padding:8px; /*El borde estaba muy pegado a los costados de los escudos, el padding horizontal les dio más espacio.*/
+transition: ease 1s; /*para cuando salga del hover, no vuelva a su tamaño original de golpe y sea progresivo/paulatino*/
+}    
+
+/* ANIMACION DE LAS IMGS */
+.selecciones:hover{
+transform: scale(1.2);
+transition:ease 1s
+}
+
+.selecciones.seleccionada {  /* 'seleccionada' es una variable const de js que hace referencia a la img clickeada */
+transform: scale(1.2);
+}
+
+/* INPUT */
+
+.s3input{
+top:89%;
+left:4%;
+}
+
+.copa4de4{
+top:89%;
+left:48%;
+}
+
+#mensaje4de4{
+top:89%;
+left:60%;
+border:none
+}
+
+textarea{
+position: absolute;
+top:99%;
+left:80%;
+border: 6px solid orange;
+font-size: 20px;
+font-weight: bolder;
+resize:both;
+/* form-sizing:content; */
+}
+
+textarea:focus{
+    border-color: red;
+}
+
+.submit{
+position: absolute;
+top:106%;
+left:0.25%;
+font-weight: bolder;
+font-style:italic;
+font-family:'Lucida Sans' ;
+background-color: #36365f;
+border: none;
+transform-origin: left; /*Esto generó que el borde izquierdo se mantenga en el VW, lO PRIORIZÓ.*/
+}
+/* Lo que hace transform-origin es seleccionar desde donde comenzará la transformación, de forma predeterminada comienzan en 
+"center", el medio, en este caso, le indiqué que comienze desde la parte izquierda, y continuo hacia la derecha, por eso es que la 
+parte izquierda no se fue por fuera del VW (viewport width) */
+
+.submit:hover{
+background-color: #1b1b32;
+transform: scale(1.2);
+transition: ease 1.5s;
+cursor: pointer;
+border:3px solid orange;
+}
+
+.submit:focus{
+background-color: orange;
+} 
+
+.extra-size{
+width: 98.9vw;
+height: 1px;
+background-color: #1b1b32;
+position: absolute;
+top:107.3%;
+}
+/* extra-size ha sido creado debido a que el input submit y el textarea quedaban pegados al borde inferior y necesitaba espacio
+ya que el margin u otros atributos directos no sirvieron la solución encontrada es crear un div que tenga aproximadamente un
+1.5% mas de margen top con position:absolute */
+
+/*  */
+.box{
+height:300px;
+width:250px;
+background-color: violet;
+position: absolute;
+left: 17.3%;}
+
+.paddingBottom{
+height:300px;
+width:109.9%;
+background-color: #1b1b32;
+position: relative;
+top:2000px;
+}
+
+p{
+margin-top: 250px;
+font-style: italic;
+font-weight: bolder;
+font-size: 35px;
+color:white;
+text-indent: 2%;
+text-decoration:underline;
+}
+
+
+
+
+
+
+/* ELEMENTOS CARGADOS DESDE JS, AUSENTES EN EL HTML FILE */
+/* IMGS DEL CARRUSEL */
+
+img[src="RiverPlate.png"], [src="BocaJuniors.png"], [src="Barca.png"], [src="RealMadrid.jpg"], [src="Atletico.png"],[src="Sevilla.png"], [src="Valencia.png"], [src="Bayern.png"],[src="Borussia.png"], [src="Liverpool.jpg"], [src="City.jpg"], [src="ManU.jpg"], [src="Chelsea.png"], [src="Arsenal.png"], [src="Milan.png"], [src="Inter.jpg"],[src="Juventus.png"], [src="Napoli.png"], [src="Roma.png"], [src="psg.png"], [src="lyon.png"], [src="Benfica.png"], [src="Oporto.png"]:hover{
+cursor: pointer;
+}
+
+img[src="Racing.png"], [src="San Lorenzo.png"], [src="Estudiantes.png"]{width:50%;}
+
+
+
+img[src="Barca.png"], [src="RealMadrid.jpg"],[src="Liverpool.jpg"],[src="Bayern.png"],[src="ManU.jpg"],[src="City.jpg"], [src="Chelsea.png"], [src="Arsenal.png"], [src="Borussia.png"]{
+width:50%;
+}
+
+img[src="Milan.png"], [src="Inter.jpg"]{
+width:48%;
+}
+
+img[src="Juventus.png"]{
+width: 50%;
+}
+
+img[src="psg.png"], [src="Oporto.png"], [src="lyon.png"], [src="Roma.png"], [src="Napoli.png"], [src="Borussia.png"], [src="Atletico.png"], [src="Valencia.png"], [src="Sevilla.png"]{
+width:50%;
+}
+
+
+
+/* NBA */
+
+img[src="Lakers.png"]{
+height:60%;
+}
+
+img[src="Spurs.png"]{
+height:55%;
+width:52%;
+}
+
+img[src="Warriors.png"]{
+width:50%;
+}
+
+img[src="miami"]{
+height:80%;
+} /*LIGERA MAYOR ALTURA*/
+
+img[src="Cavaliers.png"]{
+height:60%;
+width:50%;
+}
+
+img[src="Knicks"]{
+width:100%;
+}
+
+img[src="Mavericks.png"], [src="Pistons.png"]{
+width:50%;
+height:80%;
+}
+
+img[src="Wizards.png"], [src="OrlandoMagic.png"], [src="Pelicans.png"], [src="Raptors.png"], [src="Rockets.png"],[src="Kings.png"], [src="Sixers.png"]{
+    width:50%;
+}
+
+
